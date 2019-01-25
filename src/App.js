@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import { routes } from './routes';
+import { NotFoundPage } from './pages';
 import 'antd/dist/antd.css';
 
 class App extends Component {
@@ -18,6 +19,7 @@ class App extends Component {
               />
             );
           })}
+          <Route path="*" component={NotFoundPage} />
         </Switch>
       </BrowserRouter>
     );
