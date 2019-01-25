@@ -10,9 +10,19 @@ export const routes = [
         <HomePage />
       </DefaultLayout>
     ),
-  },
-  {
-    path: '/connected',
-    component: () => <ConnectedPage />,
+  }, {
+    path: '/hls/dashboard',
+    component: () => (
+      <DefaultLayout>
+        <ConnectedPage />
+      </DefaultLayout>
+    ),
+  }, {
+    path: '/hls/management',
+    component: () => (
+      <DefaultLayout>
+        <ConnectedPage />
+      </DefaultLayout>
+    ),
   },
 ];

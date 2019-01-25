@@ -2,24 +2,50 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Layout, Menu, Icon } from 'antd';
+import { Link, withRouter } from 'react-router-dom';
 import './index.scss';
-import logo from '../../assets/images/logo.png'
+import logo from '../../assets/images/logo.png';
+import { SIDEBAR_MENUS } from '../../constants';
+
 const { Header, Sider, Content } = Layout;
+const SubMenu = Menu.SubMenu;
 
 class DefaultLayout extends Component {
   state = {
-    collapsed: false,
+    collapsed: localStorage.getItem('side_menu_toogle') === 'true',
+    openKeys: SIDEBAR_MENUS.filter(
+      (menu_item) => menu_item.value === this.props.location.pathname
+    ).map((item) => item.parent && item.parent.toString()) || ['0'],
   };
 
   toggle = () => {
+    localStorage.setItem('side_menu_toogle', !this.state.collapsed);
     this.setState({
       collapsed: !this.state.collapsed,
     });
   };
 
+  onOpenChange = (openKeys) => {
+    const latestOpenKey = openKeys.find(
+      (key) => this.state.openKeys.indexOf(key) === -1
+    );
+    if (
+      SIDEBAR_MENUS.filter((tmp_menu) => tmp_menu.parent === null)
+        .map((item) => item.id.toString())
+        .indexOf(latestOpenKey) === -1
+    ) {
+      this.setState({ openKeys });
+    } else {
+      this.setState({
+        openKeys: latestOpenKey ? [latestOpenKey] : [],
+      });
+    }
+    localStorage.setItem('side_menu_openedkeys', this.state.openKeys);
+  };
+
   render() {
     return (
-      <Layout style={{height: "100vh"}}>
+      <Layout style={{ height: '100vh' }}>
         <Layout>
           <Header style={{ background: '#fff', padding: 0 }} className="fyx">
             <Icon
@@ -27,36 +53,63 @@ class DefaultLayout extends Component {
               type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
               onClick={this.toggle}
             />
-           <img src={logo} alt="Smiley face" height="42" width="42"/>
+            <img src={logo} alt="Smiley face" height="42" width="42" />
             All-in-one App
           </Header>
           <Layout>
-            <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
-              <div className="logo" />
-              <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-                <Menu.Item key="1">
-                  <Icon type="user" />
-                  <span>nav 1</span>
-                </Menu.Item>
-                <Menu.Item key="2">
-                  <Icon type="video-camera" />
-                  <span>nav 2</span>
-                </Menu.Item>
-                <Menu.Item key="3">
-                  <Icon type="upload" />
-                  <span>nav 3</span>
-                </Menu.Item>
+            <Sider
+              className="fyx-dl-sidemenu"
+              trigger={null}
+              collapsible
+              collapsed={this.state.collapsed}>
+              <Menu
+                theme="dark"
+                mode="inline"
+                defaultSelectedKeys={SIDEBAR_MENUS.filter(
+                  (menu_item) =>
+                    menu_item.value === this.props.location.pathname
+                ).map((item) => item.id.toString())}
+                {...!this.state.collapsed && { openKeys: this.state.openKeys }}
+                {...!this.state.collapsed && {
+                  onOpenChange: this.onOpenChange,
+                }}>
+                {SIDEBAR_MENUS.map(
+                  (menu) =>
+                    !menu.parent &&
+                    (SIDEBAR_MENUS.filter(
+                      (tmp_menu) => tmp_menu.parent === menu.id
+                    ).length > 0 ? (
+                      <SubMenu
+                        key={menu.id}
+                        title={
+                          <span>
+                            <Icon type={menu.icon} />
+                            <span>{menu.label}</span>
+                          </span>
+                        }>
+                        {SIDEBAR_MENUS.filter(
+                          (tmp_menu) => tmp_menu.parent === menu.id
+                        ).map((sub_menu) => (
+                          <Menu.Item key={sub_menu.id}>
+                            <Link to={sub_menu.value}>
+                              <Icon type={sub_menu.icon} />
+                              <span>{sub_menu.label}</span>
+                            </Link>
+                          </Menu.Item>
+                        ))}
+                      </SubMenu>
+                    ) : (
+                      <Menu.Item key={menu.id}>
+                        <Link to={menu.value}>
+                          <Icon type={menu.icon} />
+                          <span>{menu.label}</span>
+                        </Link>
+                      </Menu.Item>
+                    ))
+                )}
               </Menu>
             </Sider>
-            <Content
-              style={{
-                margin: '24px 16px',
-                padding: 24,
-                background: '#fff',
-                minHeight: 280,
-              }}>
-              Content
-            </Content>
+            <Content className="fyx-dl-content">{this.props.children}</Content>
           </Layout>
         </Layout>
       </Layout>
@@ -90,4 +143,4 @@ const mapDispatchToProps = (dispatch) => ({});
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(DefaultLayout);
+)(withRouter(DefaultLayout));
