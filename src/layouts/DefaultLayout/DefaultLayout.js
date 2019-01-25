@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { Layout, Menu, Icon } from 'antd';
-import { Link, withRouter } from 'react-router-dom';
-import './index.scss';
-import logo from '../../assets/images/logo.png';
+import { Layout } from 'antd';
 import { SIDEBAR_MENUS } from '../../constants';
+import DefaultLayoutHeader from './components/Header';
+import DefaultLayoutSider from './components/Sider';
 
-const { Header, Sider, Content } = Layout;
-const SubMenu = Menu.SubMenu;
+const { Content } = Layout;
 
 class DefaultLayout extends Component {
   state = {
@@ -44,71 +42,23 @@ class DefaultLayout extends Component {
   };
 
   render() {
+    const { onOpenChange } = this;
+    const { collapsed, openKeys } = this.state;
+    const { location } = this.props;
     return (
       <Layout style={{ height: '100vh' }}>
         <Layout>
-          <Header style={{ background: '#fff', padding: 0 }} className="fyx">
-            <Icon
-              className="trigger"
-              type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
-              onClick={this.toggle}
-            />
-            <img src={logo} alt="Smiley face" height="42" width="42" />
-            All-in-one App
-          </Header>
+          <DefaultLayoutHeader
+            collapsed={this.state.collapsed}
+            toggle={this.toggle}
+          />
           <Layout>
-            <Sider
-              className="fyx-dl-sidemenu"
-              trigger={null}
-              collapsible
-              collapsed={this.state.collapsed}>
-              <Menu
-                theme="dark"
-                mode="inline"
-                defaultSelectedKeys={SIDEBAR_MENUS.filter(
-                  (menu_item) =>
-                    menu_item.value === this.props.location.pathname
-                ).map((item) => item.id.toString())}
-                {...!this.state.collapsed && { openKeys: this.state.openKeys }}
-                {...!this.state.collapsed && {
-                  onOpenChange: this.onOpenChange,
-                }}>
-                {SIDEBAR_MENUS.map(
-                  (menu) =>
-                    !menu.parent &&
-                    (SIDEBAR_MENUS.filter(
-                      (tmp_menu) => tmp_menu.parent === menu.id
-                    ).length > 0 ? (
-                      <SubMenu
-                        key={menu.id}
-                        title={
-                          <span>
-                            <Icon type={menu.icon} />
-                            <span>{menu.label}</span>
-                          </span>
-                        }>
-                        {SIDEBAR_MENUS.filter(
-                          (tmp_menu) => tmp_menu.parent === menu.id
-                        ).map((sub_menu) => (
-                          <Menu.Item key={sub_menu.id}>
-                            <Link to={sub_menu.value}>
-                              <Icon type={sub_menu.icon} />
-                              <span>{sub_menu.label}</span>
-                            </Link>
-                          </Menu.Item>
-                        ))}
-                      </SubMenu>
-                    ) : (
-                      <Menu.Item key={menu.id}>
-                        <Link to={menu.value}>
-                          <Icon type={menu.icon} />
-                          <span>{menu.label}</span>
-                        </Link>
-                      </Menu.Item>
-                    ))
-                )}
-              </Menu>
-            </Sider>
+            <DefaultLayoutSider
+              collapsed={collapsed}
+              location={location}
+              openKeys={openKeys}
+              onOpenChange={onOpenChange}
+            />
             <Content className="fyx-dl-content">{this.props.children}</Content>
           </Layout>
         </Layout>
