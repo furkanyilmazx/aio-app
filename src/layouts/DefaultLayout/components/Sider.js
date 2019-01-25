@@ -13,11 +13,12 @@ class DefaultLayoutSider extends Component {
     return (
       <Sider
         className="fyx-dl-sidemenu"
+        theme="light"
         trigger={null}
         collapsible
         collapsed={collapsed}>
         <Menu
-          theme="dark"
+          theme="light"
           mode="inline"
           defaultSelectedKeys={SIDEBAR_MENUS.filter(
             (menu_item) => menu_item.value === location.pathname
