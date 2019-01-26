@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Empty } from 'antd';
 import { loadRemoteData, loadedRemoteData } from '../../actions';
 import '../Pages.scss';
 
@@ -19,24 +20,7 @@ class ConnectedPage extends Component {
   render() {
     const { dataLoading, data } = this.props;
 
-    return (
-      <div>
-        <p>Hello from ConnectedPage!</p>
-        <p>
-          <button disabled={dataLoading} onClick={this.handleClick}>
-            Click to load data
-          </button>
-        </p>
-        <div>
-          {dataLoading && <span>Data is loading...</span>}
-          <ul>
-            {data.map((item, i) => (
-              <li key={i}>{item}</li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    );
+    return <Empty />;
   }
 }
 

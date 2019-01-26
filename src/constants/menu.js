@@ -43,5 +43,16 @@ export const SIDEBAR_MENUS = [
         type: 'ADMIN',
       },
     ],
-  }
+  }, {
+    id: 5,
+    label: 'Calendar',
+    value: '/calendar',
+    icon: 'calendar',
+    parent: null,
+    permissions: [
+      {
+        type: 'ADMIN',
+      },
+    ],
+  },
 ];

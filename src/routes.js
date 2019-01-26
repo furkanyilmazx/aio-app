@@ -1,5 +1,5 @@
 import React from 'react';
-import { HomePage, ConnectedPage } from './pages';
+import { HomePage, ConnectedPage, CalendarPage, LoginPage } from './pages';
 import { DefaultLayout } from './layouts';
 
 export const routes = [
@@ -10,19 +10,33 @@ export const routes = [
         <HomePage />
       </DefaultLayout>
     ),
-  }, {
+  },
+  {
     path: '/hls/dashboard',
     component: () => (
       <DefaultLayout>
         <ConnectedPage />
       </DefaultLayout>
     ),
-  }, {
+  },
+  {
     path: '/hls/management',
     component: () => (
       <DefaultLayout>
         <ConnectedPage />
       </DefaultLayout>
     ),
+  },
+  {
+    path: '/calendar',
+    component: () => (
+      <DefaultLayout>
+        <CalendarPage />
+      </DefaultLayout>
+    ),
+  },
+  {
+    path: '/login',
+    component: () => <LoginPage />,
   },
 ];
