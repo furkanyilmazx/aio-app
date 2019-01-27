@@ -1,5 +1,5 @@
 import React from 'react';
-import { HomePage, ConnectedPage, CalendarPage, LoginPage } from './pages';
+import { HomePage, EditorPage, CalendarPage, LoginPage, HlsPage } from './pages';
 import { DefaultLayout } from './layouts';
 
 export const routes = [
@@ -15,7 +15,7 @@ export const routes = [
     path: '/hls/dashboard',
     component: () => (
       <DefaultLayout>
-        <ConnectedPage />
+        <HlsPage />
       </DefaultLayout>
     ),
   },
@@ -23,7 +23,7 @@ export const routes = [
     path: '/hls/management',
     component: () => (
       <DefaultLayout>
-        <ConnectedPage />
+        <HlsPage />
       </DefaultLayout>
     ),
   },
@@ -38,5 +38,13 @@ export const routes = [
   {
     path: '/login',
     component: () => <LoginPage />,
+  },
+  {
+    path: '/editor',
+    component: () => (
+      <DefaultLayout>
+        <EditorPage />
+      </DefaultLayout>
+    ),
   },
 ];

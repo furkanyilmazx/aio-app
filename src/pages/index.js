@@ -1,7 +1,8 @@
 import HomePage from './HomePage';
-import ConnectedPage from './ConnectedPage';
+import EditorPage from './EditorPage';
 import NotFoundPage from './NotFoundPage';
 import CalendarPage from './CalendarPage';
 import LoginPage from './LoginPage';
+import HlsPage from './HlsPage';
 
-export { HomePage, ConnectedPage, NotFoundPage, CalendarPage, LoginPage };
+export { HomePage, EditorPage, NotFoundPage, CalendarPage, LoginPage, HlsPage };

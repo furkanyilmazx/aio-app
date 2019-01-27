@@ -31,7 +31,7 @@ class LoginPage extends Component {
           }}>
           <div className="logo">
             <img src={logo} alt="Smiley face" height="42" width="42" />
-            <span className="brand-name">All-in-One App</span>
+            <span className="brand-name">AIO App</span>
           </div>
           <Form onSubmit={this.handleSubmit} className="login-form">
             <Form.Item>

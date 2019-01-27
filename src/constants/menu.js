@@ -55,4 +55,16 @@ export const SIDEBAR_MENUS = [
       },
     ],
   },
+  {
+    id: 6,
+    label: 'Editor',
+    value: '/editor',
+    icon: 'edit',
+    parent: null,
+    permissions: [
+      {
+        type: 'ADMIN',
+      },
+    ],
+  },
 ];
