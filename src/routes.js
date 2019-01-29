@@ -1,6 +1,13 @@
-import React from 'react';
-import { HomePage, EditorPage, CalendarPage, LoginPage, HlsPage } from './pages';
-import { DefaultLayout } from './layouts';
+import React, { lazy } from 'react';
+import { DefaultLayout, EditorLayout } from './layouts';
+
+const HomePage = lazy(() => import('./pages/HomePage'));
+const EditorPage = lazy(() => import('./pages/EditorPage'));
+const CalendarPage = lazy(() => import('./pages/CalendarPage'));
+const LoginPage = lazy(() => import('./pages/LoginPage'));
+const HlsPage = lazy(() => import('./pages/HlsPage'));
+
+
 
 export const routes = [
   {
