@@ -1,5 +1,9 @@
 pipeline {
-    agent { docker { image 'node:8.11-alpine' } }
+    agent {
+        node {
+            label 'npm'
+        }
+    }
     stages {
         stage('build') {
             steps {
