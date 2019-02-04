@@ -1,15 +1,15 @@
-pipeline {
-    agent {
-        node {
-            label 'npm'
-        }
+node("npm") {
+    updateGitlabCommitStatus name: 'build', state: 'pending'
+    try {
+        sh 'npm i'
+        sh 'npm run build'
+    }catch(e) {
+        updateGitlabCommitStatus name: 'build', state: 'failed'
+        echo "not exist command"
+        return
     }
-    stages {
-        stage('build') {
-            steps {
-                sh 'npm i'
-                sh 'npm run build'
-            }
-        }
-    }
+    updateGitlabCommitStatus name: 'build', state: 'success'
+    updateGitlabCommitStatus name: 'test', state: 'pending'
+    // tests here
+    updateGitlabCommitStatus name: 'test', state: 'success'
 }
