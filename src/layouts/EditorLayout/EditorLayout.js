@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Layout } from 'antd';
-import { SIDEBAR_MENUS } from '../../constants';
+import { SIDEBAR_MENUS } from '../DefaultLayout/constants';
 import EditorLayoutHeader from './components/Header';
 import EditorLayoutSider from './components/Sider';
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Layout, Menu, Icon } from 'antd';
-import { SIDEBAR_MENUS } from '../../../constants';
+import { SIDEBAR_MENUS } from '../../DefaultLayout/constants';
 
 const { Sider } = Layout;
 const SubMenu = Menu.SubMenu;

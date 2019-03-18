@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Layout } from 'antd';
-import { SIDEBAR_MENUS } from '../../constants';
-import DefaultLayoutHeader from './components/Header';
-import DefaultLayoutSider from './components/Sider';
+import { SIDEBAR_MENUS } from './constants';
+import { DefaultLayoutHeader, DefaultLayoutSider } from './components';
 
 const { Content } = Layout;
 
