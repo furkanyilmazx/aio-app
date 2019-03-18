@@ -39,14 +39,26 @@ class DefaultLayoutHeader extends Component {
       </Menu>
     );
     return (
-      <Header style={{ background: '#fff', padding: 0 }} className="fyx">
+      <Header
+        style={{
+          background: '#fff',
+          padding: 0,
+          height: '44px',
+          lineHeight: '44px',
+        }}
+        className="fyx">
         <Icon
           className="trigger"
+          style={{}}
           type={collapsed ? 'menu-unfold' : 'menu-fold'}
           onClick={toggle}
         />
-        <img src={logo} alt="Smiley face" height="42" width="42" />
-        All-in-one App
+        <img
+          src={logo}
+          alt="Smiley face"
+          style={{ width: 'auto', height: '80%', marginLeft: '10px', userSelect: 'none' }}
+        />
+        <span style={{ marginLeft: '10px', userSelect: 'none' }}>All-in-one App</span>
         <div style={{ float: 'right', marginRight: '15px' }}>
           <Popover
             placement="bottomRight"
