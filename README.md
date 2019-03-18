@@ -1,4 +1,4 @@
-# FYXFE
+# AIO APP
 
 ![](overview.gif)
 

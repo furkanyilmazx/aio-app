@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import 'm-react-splitters/lib/splitters.css';
-import '../Pages.scss';
 import { Mosaic, MosaicWindow } from 'react-mosaic-component';
-import MonacoEditor from 'react-monaco-editor';
 import 'react-mosaic-component/react-mosaic-component.css';
+import '../Pages.scss';
+//import MonacoEditor from 'react-monaco-editor';
+
+const MonacoEditor = React.lazy(() => import('react-monaco-editor'));
 
 class EditorPage extends Component {
+  
   editor = null;
   state = {
     code: '// type your code...',
@@ -19,10 +21,12 @@ class EditorPage extends Component {
     editor.focus();
     this.editor = editor;
   };
+
   onChange = (value, i, j) => {
     console.log(value, i, j);
     this.setState({ code: value });
   };
+
   render() {
     const { code } = this.state;
     const options = {

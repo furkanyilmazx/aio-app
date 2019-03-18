@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Layout, Form, Icon, Input, Button, Checkbox, Row, Col } from 'antd';
+import { Form, Icon, Input, Button, Checkbox, Row, Col } from 'antd';
 import logo from '../../assets/images/logo.png';
 import './index.scss';
+
 class LoginPage extends Component {
   handleSubmit = (e) => {
     e.preventDefault();

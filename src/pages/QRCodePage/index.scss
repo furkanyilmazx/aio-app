@@ -1,0 +1,15 @@
+.ant-tabs .ant-tabs-left-bar .ant-tabs-tab {
+  text-align: left;
+}
+
+.color-picker-container {
+  .ant-popover-inner {
+    .ant-popover-inner-content {
+      padding: 0;
+      .chrome-picker {
+        width: auto !important;
+        box-shadow: none !important;
+      }
+    }
+  }
+}

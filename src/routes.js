@@ -6,6 +6,8 @@ const EditorPage = lazy(() => import('./pages/EditorPage'));
 const CalendarPage = lazy(() => import('./pages/CalendarPage'));
 const LoginPage = lazy(() => import('./pages/LoginPage'));
 const HlsPage = lazy(() => import('./pages/HlsPage'));
+const QRCodePage = lazy(() => import('./pages/QRCodePage'));
+const CreditCard = lazy(() => import('./pages/CreditCard'));
 
 
 
@@ -43,6 +45,14 @@ export const routes = [
     ),
   },
   {
+    path: '/qrcode',
+    component: () => (
+      <DefaultLayout>
+        <QRCodePage />
+      </DefaultLayout>
+    ),
+  },
+  {
     path: '/login',
     component: () => <LoginPage />,
   },
@@ -51,6 +61,14 @@ export const routes = [
     component: () => (
       <DefaultLayout>
         <EditorPage />
+      </DefaultLayout>
+    ),
+  },
+  {
+    path: '/credit-card',
+    component: () => (
+      <DefaultLayout>
+        <CreditCard />
       </DefaultLayout>
     ),
   },

@@ -67,4 +67,28 @@ export const SIDEBAR_MENUS = [
       },
     ],
   },
+  {
+    id: 7,
+    label: 'Qr Code Desing',
+    value: '/qrcode',
+    icon: 'qrcode',
+    parent: null,
+    permissions: [
+      {
+        type: 'ADMIN',
+      },
+    ],
+  },
+  {
+    id: 8,
+    label: 'Creadit Card',
+    value: '/credit-card',
+    icon: 'credit-card',
+    parent: null,
+    permissions: [
+      {
+        type: 'ADMIN',
+      },
+    ],
+  },
 ];
