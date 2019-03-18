@@ -1,3 +1,1 @@
-import CreditCard from './CreditCard';
-
-export default CreditCard;
+export { default } from './CreditCard';

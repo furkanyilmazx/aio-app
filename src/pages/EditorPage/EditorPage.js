@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Mosaic, MosaicWindow } from 'react-mosaic-component';
 import 'react-mosaic-component/react-mosaic-component.css';
-import '../Pages.scss';
 //import MonacoEditor from 'react-monaco-editor';
 
 const MonacoEditor = React.lazy(() => import('react-monaco-editor'));

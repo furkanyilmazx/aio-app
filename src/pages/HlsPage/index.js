@@ -1,3 +1,1 @@
-import HlsPage from './HlsPage';
-
-export default HlsPage;
+export { default } from './HlsPage';

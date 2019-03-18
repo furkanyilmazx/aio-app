@@ -1,3 +1,1 @@
-import QRCodePage from './QRCodePage';
-
-export default QRCodePage;
+export { default } from './QRCodePage';

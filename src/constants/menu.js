@@ -81,7 +81,7 @@ export const SIDEBAR_MENUS = [
   },
   {
     id: 8,
-    label: 'Creadit Card',
+    label: 'Credit Card',
     value: '/credit-card',
     icon: 'credit-card',
     parent: null,

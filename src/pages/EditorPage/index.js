@@ -1,3 +1,1 @@
-import EditorPage from './EditorPage';
-
-export default EditorPage;
+export { default } from './EditorPage';

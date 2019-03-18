@@ -6,7 +6,7 @@ import astronaut from '../../assets/images/NotFoundPage/astronaut.svg';
 import spaceship from '../../assets/images/NotFoundPage/spaceship.svg';
 import './index.scss';
 
-class NotFoundPage extends Component {
+export default class NotFoundPage extends Component {
   render() {
     return (
       <React.Fragment>
@@ -29,5 +29,3 @@ class NotFoundPage extends Component {
     );
   }
 }
-
-export default NotFoundPage;

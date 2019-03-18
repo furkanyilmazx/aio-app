@@ -1,3 +1,1 @@
-import CalendarPage from './CalendarPage';
-
-export default CalendarPage;
+export { default } from './CalendarPage';
