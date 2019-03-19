@@ -2,7 +2,9 @@ import React, { Component, Suspense, lazy } from 'react';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import { routes } from './routes';
 import { NotFoundPage } from './pages';
+
 import 'antd/dist/antd.css';
+import 'font-awesome/css/font-awesome.min.css';
 
 class App extends Component {
   render() {

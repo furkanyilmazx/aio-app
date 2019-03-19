@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Layout, Icon, Menu, Popover, Avatar } from 'antd';
 import logo from '../../../assets/images/logo.png';
@@ -24,8 +25,10 @@ class DefaultLayoutHeader extends Component {
           Help
         </Menu.Item>
         <Menu.Item key="3fdsfdsfdss">
-          <Icon type="global" />
-          Language
+          <Link to="/lang">
+            <Icon type="global" />
+            Language
+          </Link>
         </Menu.Item>
         <Menu.Item key="gfgfgf">
           <Icon type="safety" />
@@ -56,9 +59,16 @@ class DefaultLayoutHeader extends Component {
         <img
           src={logo}
           alt="Smiley face"
-          style={{ width: 'auto', height: '80%', marginLeft: '10px', userSelect: 'none' }}
+          style={{
+            width: 'auto',
+            height: '80%',
+            marginLeft: '10px',
+            userSelect: 'none',
+          }}
         />
-        <span style={{ marginLeft: '10px', userSelect: 'none' }}>All-in-one App</span>
+        <span style={{ marginLeft: '10px', userSelect: 'none' }}>
+          All-in-one App
+        </span>
         <div style={{ float: 'right', marginRight: '15px' }}>
           <Popover
             placement="bottomRight"

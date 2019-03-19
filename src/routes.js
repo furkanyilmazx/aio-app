@@ -8,6 +8,7 @@ const LoginPage = lazy(() => import('./pages/LoginPage'));
 const HlsPage = lazy(() => import('./pages/HlsPage'));
 const QRCodePage = lazy(() => import('./pages/QRCodePage'));
 const CreditCard = lazy(() => import('./pages/CreditCard'));
+const LanguagePage = lazy(() => import('./pages/LanguagePage'));
 
 
 
@@ -69,6 +70,14 @@ export const routes = [
     component: () => (
       <DefaultLayout>
         <CreditCard />
+      </DefaultLayout>
+    ),
+  },
+  {
+    path: '/lang',
+    component: () => (
+      <DefaultLayout>
+        <LanguagePage />
       </DefaultLayout>
     ),
   },

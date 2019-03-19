@@ -1,0 +1,20 @@
+.language-radio {
+  .ant-radio-button-wrapper {
+    height: auto;
+    padding: 0;
+    margin: 5px;
+    box-shadow: #ccc 0px 0px 20px;
+    &.ant-radio-button-wrapper-checked {
+      box-shadow: #1890ff 0px 0px 15px;
+      &:first-child {
+        box-shadow: #1890ff 0px 0px 15px !important;
+      }
+      &:active {
+        box-shadow: #1890ff 0px 0px 15px;
+      }
+      &:hover {
+        box-shadow: #1890ff 0px 0px 15px;
+      }
+    }
+  }
+}
