@@ -1,31 +1,31 @@
-import React, { Component, Suspense, lazy } from 'react';
+import React, { Component } from 'react';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import { routes } from './routes';
 import { NotFoundPage } from './pages';
 import 'antd/dist/antd.css';
 
-class App extends Component {
+export default class App extends Component {
+  componentDidCatch(err, errinfo) {
+    console.log('dsadsa', err, errinfo);
+  }
+
   render() {
     return (
       <BrowserRouter>
-        <Suspense fallback={<div>Loading...</div>}>
-          <Switch>
-            {routes.map((route) => {
-              return (
-                <Route
-                  key={route.path}
-                  exact
-                  path={route.path}
-                  component={route.component}
-                />
-              );
-            })}
-            <Route path="*" component={NotFoundPage} />
-          </Switch>
-        </Suspense>
+        <Switch>
+          {routes.map((route) => {
+            return (
+              <Route
+                key={route.path}
+                exact
+                path={route.path}
+                component={route.component}
+              />
+            );
+          })}
+          <Route path="*" component={NotFoundPage} />
+        </Switch>
       </BrowserRouter>
     );
   }
 }
-
-export default App;

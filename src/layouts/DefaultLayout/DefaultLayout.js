@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, Suspense } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Layout } from 'antd';
 import { SIDEBAR_MENUS } from './constants';
 import { DefaultLayoutHeader, DefaultLayoutSider } from './components';
+import { PageLoading } from '../../components'
 
 const { Content } = Layout;
 
@@ -58,7 +59,11 @@ class DefaultLayout extends Component {
               openKeys={openKeys}
               onOpenChange={onOpenChange}
             />
-            <Content className="fyx-dl-content">{this.props.children}</Content>
+            <Content className="fyx-dl-content">
+              <Suspense fallback={<PageLoading />}>
+                {this.props.children}
+              </Suspense>
+            </Content>
           </Layout>
         </Layout>
       </Layout>

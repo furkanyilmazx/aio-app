@@ -9,8 +9,6 @@ const HlsPage = lazy(() => import('./pages/HlsPage'));
 const QRCodePage = lazy(() => import('./pages/QRCodePage'));
 const CreditCard = lazy(() => import('./pages/CreditCard'));
 
-
-
 export const routes = [
   {
     path: '/',

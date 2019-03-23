@@ -1,4 +1,2 @@
-import DefaultLayout from './DefaultLayout';
-import EditorLayout from './EditorLayout';
-
-export { DefaultLayout, EditorLayout };
+export { default as DefaultLayout } from './DefaultLayout';
+export { default as EditorLayout } from './EditorLayout';
