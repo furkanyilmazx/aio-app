@@ -1,5 +1,6 @@
 import React, { lazy } from 'react';
 import { DefaultLayout, EditorLayout } from './layouts';
+import { PageSuspenseHOC } from './components';
 
 const HomePage = lazy(() => import('./pages/HomePage'));
 const EditorPage = lazy(() => import('./pages/EditorPage'));
@@ -12,6 +13,7 @@ const CreditCard = lazy(() => import('./pages/CreditCard'));
 export const routes = [
   {
     path: '/',
+    exact: true,
     component: () => (
       <DefaultLayout>
         <HomePage />
@@ -52,7 +54,7 @@ export const routes = [
   },
   {
     path: '/login',
-    component: () => <LoginPage />,
+    component: PageSuspenseHOC(LoginPage),
   },
   {
     path: '/editor',

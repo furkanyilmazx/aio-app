@@ -69,7 +69,7 @@ export const SIDEBAR_MENUS = [
     },
     {
       id: 7,
-      label: 'Qr Code Desing',
+      label: 'Qr Code Design',
       value: '/qrcode',
       icon: 'qrcode',
       parent: null,

@@ -3,53 +3,63 @@ import { BusinessCardForm } from '../components';
 
 export const QR_TYPES = [
   {
+    id: 'business_card',
     name: 'Business Card',
     icon: 'idcard',
     component: <BusinessCardForm />,
   },
   {
+    id: 'text',
     name: 'Text',
     icon: 'edit',
-    component: 'XXXX',
+    component: 'Text',
   },
   {
+    id: 'link',
     name: 'Link',
     icon: 'link',
-    component: 'XXXX',
+    component: 'Link',
   },
   {
+    id: 'phone',
     name: 'Phone',
     icon: 'phone',
-    component: 'XXXX',
+    component: 'Phone',
   },
   {
+    id: 'mail',
     name: 'Send An Email',
     icon: 'mail',
-    component: 'XXXX',
+    component: 'Send An Email',
   },
   {
+    id: 'message',
     name: 'Send An SMS',
     icon: 'message',
-    component: 'XXXX',
+    component: 'Send An SMS',
   },
   {
+    id: 'geolocation',
     name: 'GeoLocation',
     icon: 'environment',
-    component: 'XXXX',
+    component: 'GeoLocation',
   },
   {
+    id: 'calendar',
     name: 'Calendar',
     icon: 'calendar',
-    component: 'XXXX',
+    component: 'Calendar',
   },
   {
+    id: 'wireless',
     name: 'Wireless',
     icon: 'wifi',
-    component: 'XXXX',
+    component: 'Wireless',
   },
   {
+    id: 'facetime',
     name: 'Facetime',
     icon: 'video-camera',
-    component: 'XXXX',
+    component: 'Facetime',
   },
 ];
