@@ -1,1 +1,2 @@
-export { SIDEBAR_MENUS } from './sideMenu';
+export { SIDEBAR_MENU_ITEMS } from './sideMenuItems';
+export { PROFILE_MENU_ITEMS } from './profileMenuItems';

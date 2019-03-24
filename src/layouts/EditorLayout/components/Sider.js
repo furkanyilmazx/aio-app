@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Layout, Menu, Icon } from 'antd';
-import { SIDEBAR_MENUS } from '../../DefaultLayout/constants';
+import { SIDEBAR_MENU_ITEMS } from '../../DefaultLayout/constants';
 
 const { Sider } = Layout;
 const SubMenu = Menu.SubMenu;
@@ -20,7 +20,7 @@ class EditorLayoutSider extends Component {
         <Menu
           theme="light"
           mode="inline"
-          defaultSelectedKeys={SIDEBAR_MENUS.filter(
+          defaultSelectedKeys={SIDEBAR_MENU_ITEMS.filter(
             (menu_item) => menu_item.value === location.pathname
           ).map((item) => item.id.toString())}
           {...!collapsed && { openKeys: openKeys }}
@@ -35,10 +35,10 @@ class EditorLayoutSider extends Component {
             <span>Menu</span>
           </Menu.Item>
 
-          {SIDEBAR_MENUS.map(
+          {SIDEBAR_MENU_ITEMS.map(
             (menu) =>
               !menu.parent &&
-              (SIDEBAR_MENUS.filter((tmp_menu) => tmp_menu.parent === menu.id)
+              (SIDEBAR_MENU_ITEMS.filter((tmp_menu) => tmp_menu.parent === menu.id)
                 .length > 0 ? (
                 <SubMenu
                   key={menu.id}
@@ -48,7 +48,7 @@ class EditorLayoutSider extends Component {
                       <span>{menu.label}</span>
                     </span>
                   }>
-                  {SIDEBAR_MENUS.filter(
+                  {SIDEBAR_MENU_ITEMS.filter(
                     (tmp_menu) => tmp_menu.parent === menu.id
                   ).map((sub_menu) => (
                     <Menu.Item key={sub_menu.id}>
