@@ -1,4 +1,4 @@
-export const SIDEBAR_MENUS = [
+export const SIDEBAR_MENU_ITEMS = [
     {
       id: 1,
       label: 'Home',

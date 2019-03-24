@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Spin, Icon, Row, Col } from 'antd';
 
-export default class PageLoading extends Component {
+export default class PageLoading extends PureComponent {
   render() {
     return (
       <Row

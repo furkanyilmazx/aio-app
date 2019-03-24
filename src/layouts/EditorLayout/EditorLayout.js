@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Layout } from 'antd';
-import { SIDEBAR_MENUS } from '../DefaultLayout/constants';
+import { SIDEBAR_MENU_ITEMS } from '../DefaultLayout/constants';
 import EditorLayoutHeader from './components/Header';
 import EditorLayoutSider from './components/Sider';
 
@@ -11,7 +11,7 @@ const { Content } = Layout;
 class EditorLayout extends Component {
   state = {
     collapsed: localStorage.getItem('side_menu_toogle') === 'true',
-    openKeys: SIDEBAR_MENUS.filter(
+    openKeys: SIDEBAR_MENU_ITEMS.filter(
       (menu_item) => menu_item.value === this.props.location.pathname
     ).map((item) => item.parent && item.parent.toString()) || ['0'],
   };
@@ -28,7 +28,7 @@ class EditorLayout extends Component {
       (key) => this.state.openKeys.indexOf(key) === -1
     );
     if (
-      SIDEBAR_MENUS.filter((tmp_menu) => tmp_menu.parent === null)
+      SIDEBAR_MENU_ITEMS.filter((tmp_menu) => tmp_menu.parent === null)
         .map((item) => item.id.toString())
         .indexOf(latestOpenKey) === -1
     ) {
