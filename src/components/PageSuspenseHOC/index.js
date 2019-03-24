@@ -1,0 +1,1 @@
+export { PageSuspenseHOC } from './PageSuspenseHOC';

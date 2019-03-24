@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route, BrowserRouter } from 'react-router-dom';
+import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 import { routes } from './routes';
 import { NotFoundPage } from './pages';
 import 'antd/dist/antd.css';
@@ -11,21 +11,21 @@ export default class App extends Component {
 
   render() {
     return (
-      <BrowserRouter>
+      <Router>
         <Switch>
           {routes.map((route) => {
             return (
               <Route
                 key={route.path}
-                exact
+                exact={!!route.exact}
                 path={route.path}
                 component={route.component}
               />
             );
           })}
-          <Route path="*" component={NotFoundPage} />
+          <Route component={NotFoundPage} />
         </Switch>
-      </BrowserRouter>
+      </Router>
     );
   }
 }
